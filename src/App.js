@@ -29,7 +29,7 @@ const App = () => {
         {currentUser && (
           <Route path="/mycakes" element={<CakeProtectedIndex currentUser={currentUser} cakes={cakes} />} />
         )}
-        <Routes path="/show/:id" element={<CakeShow cakes={cakes} />} />
+        <Route path="/show/:id" element={<CakeShow cakes={cakes} />} />
         <Route path="/new" element={<CakeNew cakes={cakes} />} />
         <Route path="/edit/:id" element={<CakeEdit cakes={cakes} />}/>
         <Route path="*" element={<NotFound />} />

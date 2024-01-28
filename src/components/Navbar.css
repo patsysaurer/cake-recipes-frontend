@@ -1,0 +1,18 @@
+.header {
+    background-color: var(--primary-bg);
+}
+
+.link  {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--primary-dark);
+}
+
+@media screen and (max-width:940px) {
+    .header {
+        max-width: 100%;
+    }
+}
