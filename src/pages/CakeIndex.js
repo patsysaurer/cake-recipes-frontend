@@ -1,16 +1,13 @@
 import React from "react";
 import {
   Card,
-  CardImg,
   CardBody,
   CardTitle,
   CardSubtitle,
   Button,
   Nav,
   NavItem,
-  CardText,
-  Col,
-  Row
+  CardText
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 

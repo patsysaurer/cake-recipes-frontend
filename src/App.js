@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import Home from "./pages/Home.js";
@@ -19,14 +20,148 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(mockUsers[0]);
   const [cakes, setCakes] = useState(mockCakes);
 
+  const navigate = useNavigate()
+
+  const url = "http://localhost:3000";
+  // const url = "https://cake-recipes.onrender.com"
+
+  const signin = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
+      })
+      .then((payload) => {
+        localStorage.setItem("user", JSON.stringify(payload));
+        setCurrentUser(payload);
+      })
+      .then(() => {
+        navigate("/cakeprotectedindex");
+      })
+      .catch((error) => console.log("login errors: ", error));
+  };
+
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
+      })
+      .then((payload) => {
+        localStorage.setItem("user", JSON.stringify(payload));
+        setCurrentUser(payload);
+      })
+      .then(() => {
+        navigate("/cakeindex");
+      })
+      .catch((error) => console.log("login errors: ", error));
+  };
+
+  const signout = () => {
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+      method: "DELETE",
+    })
+      .then((payload) => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setCurrentUser(null);
+      })
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => console.log("log out errors: ", error));
+  };
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser));
+    }
+    readCake();
+  }, []);
+
+  const readCake = () => {
+    fetch(`${url}/cakes`)
+      .then((res) => res.json())
+      .then((data) => setCakes(data))
+      .catch((err) => console.error("Cake errors", err));
+  };
+
+  const createCake = (cake) => {
+    fetch(`${url}/cakes`, {
+      body: JSON.stringify(cake),
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(() => readCake())
+      .catch((error) => {
+        console.log("Cake create error:", error);
+      });
+  };
+
+  const updateCake = (cake, id) => {
+    fetch(`${url}/cakes/${id}`, {
+      body: JSON.stringify(cake),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+    })
+      .then((response) => response.json())
+      .then(() => readCake())
+      .catch((errors) => console.error("Cakes update errors:", errors));
+  };
+
+  const deleteCake = (id) => {
+    fetch(`${url}/cakes/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => readCake())
+      .catch((errors) => console.log("delete errors:", errors));
+  };
+
   return (
     <>
       <div className="page">
-        <Header currentUser={currentUser} />
+        <Header currentUser={currentUser} signout={signout} />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp signup={signup} />} />
+          <Route path="/login" element={<SignIn signin={signin} />} />
           <Route path="/index" element={<CakeIndex cakes={cakes} />} />
           {currentUser && (
             <Route
@@ -36,9 +171,24 @@ const App = () => {
               }
             />
           )}
-          <Route path="/show/:id" element={<CakeShow cakes={cakes} />} />
-          <Route path="/new" element={<CakeNew cakes={cakes} />} />
-          <Route path="/edit/:id" element={<CakeEdit cakes={cakes} />} />
+          <Route
+            path="/show/:id"
+            element={<CakeShow cakes={cakes} deleteCake={deleteCake} />}
+          />
+          <Route
+            path="/new"
+            element={
+              <CakeNew
+                cakes={cakes}
+                createCake={createCake}
+                currentUser={currentUser}
+              />
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={<CakeEdit cakes={cakes} updateCake={updateCake} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

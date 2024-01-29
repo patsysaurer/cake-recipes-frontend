@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Nav, NavItem, Button, Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
-import { logo } from '../assets/cake-logo.png';
 import "./Navbar.css";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, signout }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen)
   const handleClick = () => {
+    signout()
     navigate("/");
   };
 
