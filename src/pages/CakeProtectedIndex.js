@@ -1,11 +1,11 @@
 import {
-  Card, CardImg, CardBody,
+  Card, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import { NavLink } from "react-router-dom"
 
 const CakeProtectedIndex = ({ cakes, currentUser }) => {
-  const myCakes = apartments.filter(cake => currentUser.id === cake.user_id)
+  const myCakes = cakes.filter(cake => currentUser.id === cake.user_id)
   console.log(myCakes)
   return (
     <div className='cakes-body'>
@@ -14,7 +14,7 @@ const CakeProtectedIndex = ({ cakes, currentUser }) => {
         {myCakes.map((cake, index) => {
           return (
             <Card key={index} style={{ width: "18rem"}}>
-            <img alt="Cake Image" src={cake.cakeImage} />
+            <img alt="Cake" src={cake.cakeImage} />
             <CardBody>
               <CardTitle tag="h5" style={{ color: "var(--primary-color)" }}>
                 <b>{cake.cakeName}</b>

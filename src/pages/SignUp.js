@@ -1,85 +1,85 @@
-import React from 'react'
-import { useRef } from 'react'
-import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap'
+import React from "react";
+import { useRef } from "react";
+import { FormGroup, Input, Label, Row, Col } from "reactstrap";
 
-const SignUp = ( {signup} ) => {
-
-  const formRef = useRef()
+const SignUp = ({ signup }) => {
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = new FormData(formRef.current)
-    const data = Object.fromEntries(formData)
+    e.preventDefault();
+    const formData = new FormData(formRef.current);
+    const data = Object.fromEntries(formData);
     const userInfo = {
-      user: { email: data.email, password: data.password, password_confirmation: data.password_confirmation}
-    }
-    signup(userInfo)
-    e.target.reset()
-  }
+      user: {
+        email: data.email,
+        password: data.password,
+        password_confirmation: data.password_confirmation,
+      },
+    };
+    signup(userInfo);
+    e.target.reset();
+  };
 
   return (
     <>
-    <div className="signupPage">
-      <Container style={{marginTop: '50px'}} fluid="xl">
-      <div className="signup"><h1>Sign Up</h1></div>
-        <form ref={formRef} onSubmit={handleSubmit}>
-          <Row md="4" className="signupRow">
-            <Col>
-              <FormGroup floating>
-                <Input
-                  id="exampleEmail"
-                  name="email"
-                  placeholder="Email"
-                  type="email"
-                />
-                <Label for="exampleEmail">
-                  Email
-                </Label>
-              </FormGroup>
-            </Col>
-          </Row>
-        {' '}
-          <Row md="4" className="signupRow">
-            <Col>
-              <FormGroup floating>
-                <Input
-                  id="examplePassword"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                />
-                <Label for="examplePassword">
-                  Password
-                </Label>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row md="4" className="signupRow">
-            <Col>
-              <FormGroup floating>
-                <Input
-                  id="confirmPW"
-                  name="password_confirmation"
-                  placeholder="Confirm PW"
-                  type="password"
-                />
-                <Label for="confirmPassword">
-                  Confirm Password
-                </Label>
-              </FormGroup>
-            </Col>
-          </Row>
-        {' '}
-        <Row md="4" className="signupRow">
-          <Col>
-          <Input type="submit" value="Submit" />
-          </Col>
-        </Row>
-        </form>
-        </Container>
-    </div>
-      </>
-  )
-}
+      <div className="signupPage">
+        <div className="signup-form">
+          <h1>Sign Up</h1>
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <Row>
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="exampleEmail">Email</Label>
+                    <Input
+                      id="exampleEmail"
+                      name="email"
+                      placeholder="Email"
+                      type="email"
+                    />
+                  </FormGroup>
+                </Col>
 
-export default SignUp
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="examplePassword">Password</Label>
+                    <Input
+                      id="examplePassword"
+                      name="password"
+                      placeholder="Password"
+                      type="password"
+                    />
+                  </FormGroup>
+                </Col>
+
+                <Col md={6}>
+                  <FormGroup>
+                    <Label for="confirmPassword">Confirm Password</Label>
+                    <Input
+                      id="confirmPW"
+                      name="password_confirmation"
+                      placeholder="Confirm Password"
+                      type="password"
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>{" "}
+              <Row>
+                <Col>
+                  <Input
+                    style={{
+                      backgroundColor: "var(--primary-color)",
+                      color: "var(--secondary-color)",
+                    }}
+                    type="submit"
+                    value="Submit"
+                  />
+                </Col>
+              </Row>
+            </form>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SignUp;

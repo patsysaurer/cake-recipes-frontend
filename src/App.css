@@ -97,6 +97,33 @@ footer p {
     margin-bottom: 40px;
 }
 
+/********** SIGN UP PAGE ***********/
+.signup-page {
+    height: 100vh;
+}
+
+.signup-form {
+    background-color: var(--secondary-color);
+    border:solid 1px var(--secondary-dark);
+    border-radius: 30px;
+    padding: 70px;
+    width: 600px;
+    display:block;
+    margin:auto;
+    margin-top:50px;
+}
+
+.signup-form h1 {
+    text-align: center;
+}
+
+/********** CAKE SHOW PAGE *********/
+
+.cake-show-page .card {
+    margin:auto;
+    margin-top: 50px;
+}
+
 /*********** RESPONSIVE ************/
 @media screen and (max-width:769px){
     /** HOME PAGE ***/
@@ -131,6 +158,12 @@ footer p {
     .slider {
         width: 100%;
     } 
+
+    /** SIGN UP PAGE **/
+    .signup-form {
+        width: 80%;
+    }
+    
 
     /** NOT FOUND PAGE **/
 

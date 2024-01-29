@@ -22,11 +22,12 @@ const CakeShow = ({ cakes, deleteCake }) => {
 
   return (
     <>
-      <div className="w-100 m-auto d-flex justify-content-center align-items-center my-5">
+    <div className="cake-show-page">
+      {/* <div className="w-100 m-auto d-flex justify-content-center align-items-center my-5"> */}
         {currentCake && (
           <Card
             className="shadow-lg"
-            style={{ width: "18rem", height: "100%" }}
+            style={{ width: "30rem", height: "100%" }}
           >
             <CardImg
               top
@@ -37,18 +38,21 @@ const CakeShow = ({ cakes, deleteCake }) => {
             <CardBody className="cake-text cake-font-size">
               <div className="grid-row">
                 <div className="show-cake-info">
-                  <CardTitle>
+                  <CardTitle style={{color:"var(--primary-color)", fontFamily:"fancy", fontSize:"2.3rem"}}>
                     <b>{currentCake?.cakeName}</b>
                   </CardTitle>
-                  <CardSubtitle>
-                    <i>Serves {currentCake?.cakeServings}</i>{" "}
-                    {currentCake?.cakeDescription}
+                  <CardSubtitle style={{color:"var(--primary-dark)"}}>
+                    <i>Serves {currentCake?.cakeServings}</i>
                   </CardSubtitle>
+                  <br/>
                   <CardText>
-                    Ingredients: {currentCake?.cakeIngredients}
+                  <span style={{color:"var(--primary-dark)", fontWeight:"bolder"}}>Description: </span>{currentCake?.cakeDescription}
                   </CardText>
                   <CardText>
-                    Directions: {currentCake?.cakeInstructions}
+                  <span style={{color:"var(--primary-dark)", fontWeight:"bolder"}}>Ingredients: </span> {currentCake?.cakeIngredients}
+                  </CardText>
+                  <CardText>
+                  <span style={{color:"var(--primary-dark)", fontWeight:"bolder"}}>Instructions: </span> {currentCake?.cakeInstructions}
                   </CardText>
                 </div>
               </div>
@@ -75,11 +79,12 @@ const CakeShow = ({ cakes, deleteCake }) => {
                 Delete Cake
               </NavLink>
               <NavLink to={`/cakeindex`} className="nav-link">
-                <Button className="cake-button">Back to Cakes</Button>
+                <Button style={{backgroundColor:"var(--primary-bg)", color:"var(--primary-color)", border:"solid 1px var(--primary-color)"}}>Back to Cakes</Button>
               </NavLink>
             </CardBody>
           </Card>
         )}
+      {/* </div> */}
       </div>
     </>
   );

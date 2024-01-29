@@ -17,13 +17,19 @@ import mockCakes from "./mockCakes.js";
 import "./App.css";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(mockUsers[0]);
-  const [cakes, setCakes] = useState(mockCakes);
-
+  const [cakes, setCakes] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate()
-
   const url = "http://localhost:3000";
   // const url = "https://cake-recipes.onrender.com"
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      setCurrentUser(JSON.parse(loggedInUser));
+    }
+    readCake();
+  }, []);
 
   const signin = (userInfo) => {
     fetch(`${url}/login`, {
@@ -46,7 +52,7 @@ const App = () => {
         setCurrentUser(payload);
       })
       .then(() => {
-        navigate("/cakeprotectedindex");
+        navigate("/cakeindex");
       })
       .catch((error) => console.log("login errors: ", error));
   };
@@ -95,14 +101,6 @@ const App = () => {
       })
       .catch((error) => console.log("log out errors: ", error));
   };
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      setCurrentUser(JSON.parse(loggedInUser));
-    }
-    readCake();
-  }, []);
 
   const readCake = () => {
     fetch(`${url}/cakes`)
@@ -162,21 +160,21 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp signup={signup} />} />
           <Route path="/login" element={<SignIn signin={signin} />} />
-          <Route path="/index" element={<CakeIndex cakes={cakes} />} />
           {currentUser && (
-            <Route
-              path="/mycakes"
-              element={
-                <CakeProtectedIndex currentUser={currentUser} cakes={cakes} />
-              }
-            />
+            <Route path="/cakeindex" element={<CakeIndex cakes={cakes} />} />
+            // <Route
+            //   path="/mycakes"
+            //   element={
+            //     <CakeProtectedIndex currentUser={currentUser} cakes={cakes} />
+            //   }
+            // />
           )}
           <Route
-            path="/show/:id"
+            path="/cakeshow/:id"
             element={<CakeShow cakes={cakes} deleteCake={deleteCake} />}
           />
           <Route
-            path="/new"
+            path="/cakenew"
             element={
               <CakeNew
                 cakes={cakes}
@@ -186,7 +184,7 @@ const App = () => {
             }
           />
           <Route
-            path="/edit/:id"
+            path="/cakeedit/:id"
             element={<CakeEdit cakes={cakes} updateCake={updateCake} />}
           />
           <Route path="*" element={<NotFound />} />
