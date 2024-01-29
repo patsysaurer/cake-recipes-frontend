@@ -30,12 +30,12 @@ const Header = ({ currentUser, signout }) => {
         {currentUser && (
           <>
             <NavItem>
-              <NavLink className="link" to="/mycakes">
-                My Cakes
+              <NavLink className="link" to="/cakeindex">
+                Cakes
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="link" to="/new">
+              <NavLink className="link" to="/cakenew">
                 Add a Cake
               </NavLink>
             </NavItem>

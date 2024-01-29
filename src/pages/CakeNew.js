@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Input, Col, Button, Row, Container } from "reactstrap";
+import {
+  Form,
+  FormGroup,
+  Input,
+  Col,
+  Button,
+  Row,
+  Container,
+} from "reactstrap";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +20,7 @@ const CakeNew = ({ createCake, currentUser }) => {
     cakeInstructions: "",
     cakeServings: "",
     cakeImage: "",
-    user_id: currentUser?.id
+    user_id: currentUser?.id,
   });
 
   const handleChange = (e) => {
@@ -25,67 +33,82 @@ const CakeNew = ({ createCake, currentUser }) => {
   };
   return (
     <>
-    <div className="CakeNew">
+      <div className="cake-new-form">
         <h1>New Cake</h1>
-        <Container  fluid="xl">  
-      <Form style={{marginTop: '-150px'}}>
-        <Row className="newCakeRow">
-          <Col>
-            <FormGroup>
-              <Input
-                id="cakeName"
-                name="cakeName"
-                placeholder="Cake Name"
-                onChange={handleChange}
-              />
-            </FormGroup>
-            <Row>
-              <Col>
-              <FormGroup>
-                  <Input
-                    id="cakeDescription"
-                    name="cakeDescription"
-                    onChange={handleChange}
-                    placeholder="Description"
-                    type="textarea"
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Input
-                    id="cakeIngredients"
-                    name="cakeIngredients"
-                    onChange={handleChange}
-                    placeholder="Ingredients"
-                    type="textarea"
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Input
-                    id="cakeInstructions"
-                    name="cakeInstructions"
-                    placeholder="Instructions"
-                    onChange={handleChange}
-                    type="textarea"
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row>
+        <Form>
+          <Row>
+            <Col md={6}>
               <FormGroup>
                 <Input
-                  id="imageUrl"
-                  name="image"
+                  id="cakeName"
+                  name="cakeName"
+                  placeholder="Cake Name"
+                  onChange={handleChange}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Input
+                  id="cakeDescription"
+                  name="cakeDescription"
+                  onChange={handleChange}
+                  placeholder="Description"
+                  type="textarea"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Input
+                  id="cakeIngredients"
+                  name="cakeIngredients"
+                  onChange={handleChange}
+                  placeholder="Ingredients"
+                  type="textarea"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Input
+                  id="cakeInstructions"
+                  name="cakeInstructions"
+                  placeholder="Instructions"
+                  onChange={handleChange}
+                  type="textarea"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Input
+                  id="cakeServings"
+                  name="cakeServings"
+                  placeholder="Servings"
+                  onChange={handleChange}
+                  type="text"
+                />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Input
+                  id="cakeImage"
+                  name="cakeImage"
                   type="text"
                   onChange={handleChange}
                   placeholder="Image URL"
                 />
               </FormGroup>
-            </Row>
-          </Col>
-        </Row>
-        <Button onClick={handleSubmit}> Add Cake </Button>
-      </Form>
-      </Container>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="add-btn">
+              <Button size="lg" style={{backgroundColor:"var(--primary-color)", color:"var(--primary-bg)", border:"solid 1px var(--primary-bg)"}} onClick={handleSubmit}> Add Cake </Button>
+            </Col>
+          </Row>
+        </Form>
       </div>
     </>
   );

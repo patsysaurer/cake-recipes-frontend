@@ -102,18 +102,26 @@ footer p {
     height: 100vh;
 }
 
-.signup-form {
+.signup-form, .cake-new-form, .cake-edit-form {
     background-color: var(--secondary-color);
     border:solid 1px var(--secondary-dark);
     border-radius: 30px;
-    padding: 70px;
+    padding: 60px;
     width: 600px;
     display:block;
     margin:auto;
     margin-top:50px;
 }
 
-.signup-form h1 {
+.signup-form h1, .cake-new-form h1, .cake-edit-form h1 {
+    text-align: center;
+    margin-top: -40px;
+    padding: 20px;
+    color: var(--primary-dark);
+}
+
+.add-btn {
+    padding-top:20px;
     text-align: center;
 }
 
