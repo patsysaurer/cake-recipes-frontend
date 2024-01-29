@@ -1,24 +1,27 @@
-import React from "react";
-import { Nav, NavItem, Button } from "reactstrap";
+import React, { useState } from "react";
+import { Nav, NavItem, Button, Navbar, NavbarBrand, NavbarToggler, Collapse } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
+import { logo } from '../assets/cake-logo.png';
 import "./Navbar.css";
 
 const Header = ({ currentUser }) => {
   const navigate = useNavigate();
-
-
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen)
   const handleClick = () => {
     navigate("/");
   };
 
   return (
     <div className="header">
-      <Nav
+      <Navbar
         role="navigation"
         aria-label="navigation"
-        className="d-flex justify-content-around align-items-center gap-5 w-100 p-3"
-
       >
+        <NavbarBrand href="/"><img src="https://res.cloudinary.com/dl11m63ow/image/upload/c_thumb,w_200,g_face/v1706488642/cake-logo_imncce.png" style={{width:"6rem"}}/></NavbarBrand>
+        <NavbarToggler style={{color:"var(--secondary-color)"}} onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
         <NavItem>
           <NavLink className="link" to="/">
             Home
@@ -66,7 +69,9 @@ const Header = ({ currentUser }) => {
             </NavItem>
           </>
         )}
-      </Nav>
+              </Nav>
+        </Collapse>
+      </Navbar>
     </div>
   );
 };

@@ -1,0 +1,154 @@
+/***** NOT FOUND PAGE *****/
+.not-found {
+    height: 100vh;
+    width: 100vw;
+    background: url(https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706493841/cat_jw7rht.jpg) no-repeat center center/ cover;
+}
+
+.not-found-text {
+    display: block;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 50px;
+    background-color: var(--secondary-color);
+    border: solid 2px var(--primary-color);
+    border-radius: 30px;
+    opacity: 0.8;
+    text-align: right;
+    padding: 50px;
+    width: 30rem;
+    color: var(--primary-color);
+}
+
+.not-found h1 {
+    font-size: 4rem;
+}
+
+/***** HOME PAGE *****/
+.page {
+    width: 100%;
+    margin:auto;
+}
+
+/* Hero */
+#hero-section {
+    display: flex;
+    /* background-color: var(--secondary-color); */
+}
+
+/* Intro */
+
+#intro-section {
+    width: 40%;
+    margin-left: 30px;
+    margin-top: 50px;
+    padding: 25px;
+}
+
+#intro-section h2 {
+    color: var(--primary-color);
+}
+
+#intro-section h1 {
+    color: var(--primary-color);
+}
+
+.text-content {
+    margin-top:100px;
+}
+
+footer {
+    padding: 20px;
+}
+
+footer p {
+    padding-top: 20px;
+}
+
+.line {
+    border-bottom: solid 1px var(--secondary-color);
+    width: 100vw;
+    padding-bottom: 25px;
+}
+
+/* Slider */
+
+.slider {
+    width: 60%;
+    border: solid 5px var(--primary-color);
+}
+
+.cakes-body {
+    display: block;
+    margin:auto;
+    width: 90vw;
+    margin-top: 35px;
+}
+
+.cake-collection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.cake-collection .card {
+    margin-bottom: 40px;
+}
+
+/*********** RESPONSIVE ************/
+@media screen and (max-width:769px){
+    /** HOME PAGE ***/
+    .home-page {
+        width: 100%;
+    }
+    #hero-section {
+        display:block;
+    }
+
+    #intro-section {
+        width: 100%;
+        height: 300px;
+        margin: auto;
+    }
+
+    .text-content h4 {
+        padding-bottom: 25px;
+    }
+
+    .text-content {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .signup-btn {
+        display: block;
+        width: 120px;
+        margin: auto;
+    }
+    
+    .slider {
+        width: 100%;
+    } 
+
+    /** NOT FOUND PAGE **/
+
+    .not-found-text {
+        position: absolute;
+        margin-top: 100px;
+        margin-left: 20%;
+        text-align: center;
+        padding: 50px;
+        width: 20rem;
+    }
+
+    /** CAKE INDEX PAGE **/
+
+    .cake-collection {
+        display: block;
+        width: 18rem;
+        margin:auto;
+    }
+
+}

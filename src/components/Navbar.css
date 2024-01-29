@@ -1,10 +1,18 @@
+.navbar {
+    text-align: center;
+    line-height: 1.8;
+}
+
 .header {
-    background-color: var(--primary-bg);
+    background-color: #fff;
+    border-bottom: solid 1px var(--secondary-color);
 }
 
 .link  {
     color: var(--primary-color);
     text-decoration: none;
+    font-size: 1.3rem;
+    padding:10px;
 }
 
 .link:hover {
