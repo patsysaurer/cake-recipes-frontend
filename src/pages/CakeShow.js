@@ -23,7 +23,6 @@ const CakeShow = ({ cakes, deleteCake }) => {
   return (
     <>
     <div className="cake-show-page">
-      {/* <div className="w-100 m-auto d-flex justify-content-center align-items-center my-5"> */}
         {currentCake && (
           <Card
             className="shadow-lg"
@@ -84,7 +83,6 @@ const CakeShow = ({ cakes, deleteCake }) => {
             </CardBody>
           </Card>
         )}
-      {/* </div> */}
       </div>
     </>
   );
