@@ -88,9 +88,9 @@ const CakeEdit = ({ cakes, updateCake }) => {
             <Col md={6}>
               <FormGroup>
                 <Input
-                  id="imageUrl"
-                  name="image"
-                  type="text"
+                  id="cakeImage"
+                  name="cakeImage"
+                  type="textarea"
                   onChange={handleChange}
                   value={editCake?.cakeImage}
                 />

@@ -8,34 +8,39 @@ import {
 
 const items = [
   {
+    src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706547515/mommys-carrot-cake_q1cpoj.jpg",
+    altText: "Mommy's Carrot Cake",
+    key: 1,
+  },
+  {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706416608/bday-cake_u6ivhn.jpg",
     altText: "Birthday Cake",
-    key: 1,
+    key: 2,
   },
   {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706491307/unicorn-cake_olzonn.jpg",
     altText: "Unicorn Cake",
-    key: 2,
+    key: 3,
   },
   {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706415571/honey-cake_hcmhqo.jpg",
     altText: "Honey Cake",
-    key: 3,
+    key: 4,
   },
   {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706491176/chocolate-cake2_zslhz0.jpg",
     altText: "Chocolate Cake",
-    key: 4,
+    key: 5,
   },
   {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706491265/chocolate-pb-cheesecake_zqudfg.jpg",
     altText: "Chocolate Cheesecake",
-    key: 5,
+    key: 6,
   },
   {
     src: "https://res.cloudinary.com/dl11m63ow/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1706416401/grapefruit-cake_qae1rt.jpg",
     altText: "Grapefruit Cake",
-    key: 6,
+    key: 7,
   },
 ];
 
