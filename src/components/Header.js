@@ -40,10 +40,8 @@ const Header = ({ currentUser, signout }) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <Button color="warning">
-              <NavLink onClick={handleClick} className="link" to="#">
-                Log Out
-              </NavLink>
+            <Button style={{backgroundColor:"#F5D34E", border:"none"}}>
+            <NavLink className="link" to="/" onClick={handleClick}>Log Out</NavLink>
               </Button>
             </NavItem>
           </>
@@ -56,11 +54,11 @@ const Header = ({ currentUser, signout }) => {
               </NavLink>
             </NavItem>
             <NavItem>
-            <Button color="warning">
-              <NavLink className="link" to="/signup">
-                Sign Up
-              </NavLink>
-            </Button>
+            <Button style={{backgroundColor:"#F5D34E", border:"none"}}>
+                <NavLink className="link" to="/signup">
+                  Sign Up
+                </NavLink>
+              </Button>
             </NavItem>
           </>
         )}

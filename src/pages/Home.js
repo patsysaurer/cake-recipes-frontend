@@ -3,11 +3,11 @@ import Slider from "../components/Slider.js";
 import Intro from "../components/Intro.js";
 
 
-const Home = () => {
+const Home = ({currentUser}) => {
   return (
     <>
       <div id="hero-section">
-        <Intro />
+        <Intro currentUser={currentUser}/>
         <Slider className="slider" />
       </div>
     </>

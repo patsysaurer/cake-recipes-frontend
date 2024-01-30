@@ -25,11 +25,8 @@ const CakeShow = ({ cakes, deleteCake }) => {
           <Card
             className="shadow-lg"
             style={{
-              width: "18rem",
-              height: "100%",
-              "@media(maxWidth: 769px)": {
-                width: "30rem"
-              },
+              width: "60%",
+              height: "100%"
             }}
           >
             <CardImg
@@ -96,6 +93,10 @@ const CakeShow = ({ cakes, deleteCake }) => {
                 style={{
                   color: "var(--primary-color)",
                   backgroundColor: "var(--secondary-color)",
+                  width:"100px",
+                  margin:"auto",
+                  textAlign:"center",
+                  fontWeight:"bolder"
                 }}
               >
                 Edit Cake
@@ -106,17 +107,21 @@ const CakeShow = ({ cakes, deleteCake }) => {
                 className="nav-link bg-danger p-2 rounded my-2"
                 style={{
                   color: "var(--primary-bg)",
+                  width:"150px",
+                  margin:"auto",
+                  textAlign:"center",
+                  fontWeight:"normal"
                 }}
                 onClick={handleClick}
               >
                 Delete Cake
               </NavLink>
-              <NavLink to={`/cakeindex`} className="nav-link">
+              <NavLink to={`/cakeindex`} className="nav-link" style={{ width:"130px", margin:"auto"}}>
                 <Button
                   style={{
                     backgroundColor: "var(--primary-bg)",
                     color: "var(--primary-color)",
-                    border: "solid 1px var(--primary-color)",
+                    border: "solid 1px var(--primary-color)"
                   }}
                 >
                   Back to Cakes

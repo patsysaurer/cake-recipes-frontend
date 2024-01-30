@@ -1,6 +1,12 @@
 import React from "react";
 import { useRef } from "react";
-import { FormGroup, Input, Label, Row, Col } from "reactstrap";
+import {
+  FormGroup,
+  Input,
+  Label,
+  Row,
+  Col,
+} from "reactstrap";
 
 const SignIn = ({ signin }) => {
   const formRef = useRef();
@@ -21,37 +27,37 @@ const SignIn = ({ signin }) => {
       <div className="signup-page">
         <div className="signup-form">
           <h1>Login</h1>
-            <form ref={formRef} onSubmit={handleSubmit}>
-              <Row>
-                <Col md={6}>
-                  <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input id="exampleEmail" name="email" placeholder="email" />
-                  </FormGroup>
-                </Col>
-                <Col md={6}>
-                  <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input
-                      id="examplePassword"
-                      name="password"
-                      placeholder="password"
-                      type="password"
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
+          <form ref={formRef} onSubmit={handleSubmit}>
+            <Row>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="exampleEmail">Email</Label>
+                  <Input id="exampleEmail" name="email" placeholder="email" />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="examplePassword">Password</Label>
+                  <Input
+                    id="examplePassword"
+                    name="password"
+                    placeholder="password"
+                    type="password"
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
 
-              <Input
-                style={{
-                  backgroundColor: "var(--primary-color)",
-                  color: "var(--secondary-color)",
-                  fontWeight: "bolder",
-                }}
-                type="submit"
-                value="Login"
-              />
-            </form>
+            <Input
+              style={{
+                backgroundColor: "var(--primary-color)",
+                color: "var(--secondary-color)",
+                fontWeight: "bolder",
+              }}
+              type="submit"
+              value="Login"
+            />
+          </form>
         </div>
       </div>
     </>

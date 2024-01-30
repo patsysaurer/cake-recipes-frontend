@@ -19,7 +19,7 @@ import "./App.css";
 const App = () => {
   const [cakes, setCakes] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // const url = "http://localhost:3000";
   const url = "https://cake-recipes.onrender.com"
 
@@ -157,18 +157,10 @@ const App = () => {
       <div className="page">
         <Header currentUser={currentUser} signout={signout} />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home currentUser={currentUser} />} />
           <Route path="/signup" element={<SignUp signup={signup} />} />
           <Route path="/login" element={<SignIn signin={signin} />} />
-          {currentUser && (
-            <Route path="/cakeindex" element={<CakeIndex cakes={cakes} />} />
-            // <Route
-            //   path="/mycakes"
-            //   element={
-            //     <CakeProtectedIndex currentUser={currentUser} cakes={cakes} />
-            //   }
-            // />
-          )}
+          <Route path="/cakeindex" element={<CakeIndex cakes={cakes} />} />
           <Route
             path="/cakeshow/:id"
             element={<CakeShow cakes={cakes} deleteCake={deleteCake} />}

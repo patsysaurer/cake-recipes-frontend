@@ -68,7 +68,9 @@ const SignUp = ({ signup }) => {
                   <Input
                     style={{
                       backgroundColor: "var(--primary-color)",
-                      color: "var(--secondary-color)",
+                      color: "var(--primary-bg)",
+                      border: "none",
+                      fontWeight:"bolder"
                     }}
                     type="submit"
                     value="Submit"
