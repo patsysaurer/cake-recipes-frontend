@@ -21,7 +21,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
   // const url = "http://localhost:3000";
-  const url = "https://cake-recipes.onrender.com"
+  const url = "https://cake-recipes.onrender.com";
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
